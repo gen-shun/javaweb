@@ -1,4 +1,4 @@
-SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='acrbs.azurecr.io/acrbs/acrbs/demo1-source')
+SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='your-registry.io/project/tanzu-java-web-app-source')
 LOCAL_PATH = os.getenv("LOCAL_PATH", default='.')
 NAMESPACE = os.getenv("NAMESPACE", default='default')
 OUTPUT_TO_NULL_COMMAND = os.getenv("OUTPUT_TO_NULL_COMMAND", default=' > /dev/null ')
@@ -22,4 +22,4 @@ k8s_custom_deploy(
 
 k8s_resource('demo1', port_forwards=["8080:8080"],
             extra_pod_selectors=[{'carto.run/workload-name': 'demo1', 'app.kubernetes.io/component': 'run'}])
-allow_k8s_contexts('minikube')
+allow_k8s_contexts('tapaks-admin@tapaks')
